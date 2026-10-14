@@ -7,9 +7,10 @@ const client = new ImageKit({
 const uploadFile = async (buffer) => {
     console.log(buffer)
     const result = await client.files.upload({
-        file : buffer,
+        file : buffer.toString("base64"),
         fileName: "image.jpg"
     })
+    return result
 }
 
 module.exports = uploadFile
